@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carta para Mi Esposa</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #f8cdda, #f88f9c);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Georgia', serif;
+      overflow: hidden;
+    }
+
+    .sobre-contenedor {
+      position: relative;
+      width: 420px;
+      height: 520px;
+      perspective: 1000px;
+    }
+
+    .sobre {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #fff0f5;
+      border: 2px solid #c71585;
+      border-radius: 10px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    .tapa {
+      position: absolute;
+      width: 100%;
+      height: 50%;
+      background: #c71585;
+      top: 0;
+      left: 0;
+      transform-origin: top;
+      animation: abrirSobre 2s ease forwards;
+      z-index: 3;
+    }
+
+    .carta {
+      position: absolute;
+      width: 90%;
+      height: 90%;
+      background: #fff;
+      top: 100%;
+      left: 5%;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      opacity: 0;
+      animation: subirCarta 2s ease 2s forwards;
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .carta h1 {
+      font-size: 22px;
+      color: #c71585;
+      margin-top: 10px;
+    }
+
+    .corazon {
+      font-size: 30px;
+      animation: latido 1s infinite;
+    }
+
+    .mensaje {
+      font-size: 14px;
+      color: #333;
+      margin-top: 15px;
+      line-height: 1.5;
+      text-align: justify;
+    }
+
+    .boton-repetir {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #c71585;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    .boton-repetir:hover {
+      background-color: #a01070;
+    }
+
+    @keyframes abrirSobre {
+      0% { transform: rotateX(0); }
+      100% { transform: rotateX(-180deg); }
+    }
+
+    @keyframes subirCarta {
+      0% { top: 90%; opacity: 0; }
+      100% { top: 5%; opacity: 1; }
+    }
+
+    @keyframes latido {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+  </style>
+</head>
+<body>
+
+<div class="sobre-contenedor" id="animacion">
+  <div class="sobre">
+    <div class="tapa"></div>
+    <div class="carta">
+      <div class="corazon">❤️</div>
+      <h1>Para Mi<br>Amada<br>Esposa</h1>
+      <p class="mensaje">
+        Cada día a tu lado es un regalo que atesoro profundamente.<br><br>
+        Eres mi alegría, mi paz y mi inspiración constante.<br><br>
+        Gracias por llenar mi vida de amor, ternura y risas.<br><br>
+        Te amo más de lo que las palabras pueden expresar.<br><br>
+        Siempre tuyo, con todo mi corazón. ❤️
+      </p>
+    </div>
+  </div>
+</div>
+
+<button class="boton-repetir" onclick="reiniciarAnimacion()">Reproducir de nuevo</button>
+
+<script>
+  function reiniciarAnimacion() {
+    const animacion = document.getElementById("animacion");
+    const tapa = animacion.querySelector(".tapa");
+    const carta = animacion.querySelector(".carta");
+
+    // Reiniciar animaciones
+    tapa.style.animation = 'none';
+    carta.style.animation = 'none';
+    carta.style.opacity = '0';
+    carta.style.top = '100%';
+
+    void animacion.offsetWidth; // Trigger reflow
+
+    tapa.style.animation = "abrirSobre 2s ease forwards";
+    carta.style.animation = "subirCarta 2s ease 2s forwards";
+  }
+</script>
+
+</body>
+</html>
