@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carta para Mi Novia</title>
+  <title>Carta para Mi novia</title>
   <style>
     body {
-      background: linear-gradient(to right, #f8cdda, #f88f9c);
+      background: linear-gradient(to right, #d8c0fd, #7904eeca);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -19,17 +19,17 @@
 
     .sobre-contenedor {
       position: relative;
-      width: 420px;
-      height: 520px;
+      width: 620px;
+      height: 620px;
       perspective: 1000px;
     }
 
     .sobre {
       position: relative;
-      width: 100%;
+      width: 90%;
       height: 100%;
-      background: #fff0f5;
-      border: 2px solid #c71585;
+      background: #fbe3ff;
+      border: 2px solid #000000;
       border-radius: 10px;
       box-shadow: 0 8px 15px rgba(0,0,0,0.2);
       overflow: hidden;
@@ -40,11 +40,11 @@
       position: absolute;
       width: 100%;
       height: 50%;
-      background: #c71585;
+      background: #7904ee;
       top: 0;
       left: 0;
       transform-origin: top;
-      animation: abrirSobre 2s ease forwards;
+      animation: abrirSobre 3s ease forwards;
       z-index: 3;
     }
 
@@ -58,7 +58,7 @@
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       opacity: 0;
-      animation: subirCarta 2s ease 2s forwards;
+      animation: subirCarta 2s ease 1s forwards;
       padding: 20px;
       box-sizing: border-box;
       text-align: center;
@@ -73,21 +73,21 @@
 
     .corazon {
       font-size: 30px;
-      animation: latido 1s infinite;
+      animation: latido 1.5s infinite;
     }
 
     .mensaje {
-      font-size: 14px;
+      font-size: 15px;
       color: #333;
       margin-top: 15px;
-      line-height: 1.5;
+      line-height: 1;
       text-align: justify;
     }
 
     .boton-repetir {
       margin-top: 30px;
       padding: 10px 20px;
-      background-color: #c71585;
+      background-color: #7904ee;
       color: white;
       border: none;
       border-radius: 10px;
@@ -97,7 +97,7 @@
     }
 
     .boton-repetir:hover {
-      background-color: #a01070;
+      background-color: #b404ff;
     }
 
     @keyframes abrirSobre {
@@ -123,13 +123,15 @@
     <div class="tapa"></div>
     <div class="carta">
       <div class="corazon">❤️</div>
-      <h1>Para Mi<br>Amada<br>novia</h1>
+      <h1>Para Mi Amada Novia</h1>
       <p class="mensaje">
-        Cada día a tu lado es un regalo que atesoro profundamente.<br><br>
-        Eres mi alegría, mi paz y mi inspiración constante.<br><br>
-        Gracias por llenar mi vida de amor, ternura y risas.<br><br>
-        Te amo más de lo que las palabras pueden expresar.<br><br>
-        Siempre tuyo, con todo mi corazón. ❤️
+        Mi polola linda, <br><br>
+        Admiro cada cosa que haces, la pasión, el amor y el esfuerzo que demuestras, esa forma de alegar, de ser hija, prima, hermana y sobre todo mi novia, se que no es tarea facil y por eso te quiero agredecer por toda la paciencia y el amor infinito que me brindas.<br><br>
+        Se que muchas veces sentimos que no somos sufucientes o que lo estamos haciendo mal, pero la misma vida te demuetra lo buena que eres, los frutos de tu esfuerzo se ven reflejados cada vez más.<br><br>
+        Te amo con las fuerzas de mi alma, se que muy pronto estaremos en nuestra casita, construyendo nuestro hogar, ese hogar con el que tanto soñamos vivir y el que tanto añoramos brindar a nuestro hij@.<br><br>
+        Vida hermosa, todo sera mejor<br><br>
+        Siempre tuyo,<br><br>
+        <center><b>Tu pololo ❤️</b>
       </p>
     </div>
   </div>
@@ -155,6 +157,5 @@
     carta.style.animation = "subirCarta 2s ease 2s forwards";
   }
 </script>
-
 </body>
 </html>
