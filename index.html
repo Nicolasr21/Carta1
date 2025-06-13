@@ -85,7 +85,7 @@
       font-size: 18px;
       color: #333;
       margin-top: 15px;
-      line-height: 1.5;
+      line-height: 2;
       text-align: justify;
     }
 
@@ -122,7 +122,7 @@
 
     @media (max-width: 600px) {
       .carta h1 {
-        font-size: 18px;
+        font-size: 20px;
       }
 
       .mensaje {
@@ -170,7 +170,7 @@ Tu pololo ❤️`;
 
   function escribirTexto(i = 0) {
     if (i < texto.length) {
-      mensajeElemento.innerHTML += texto[i] === '\n' ? '<br><br>' : texto[i];
+      mensajeElemento.innerHTML += texto[i] === '\n' ? '<br>' : texto[i];
       setTimeout(() => escribirTexto(i + 1), 40);
     }
   }
