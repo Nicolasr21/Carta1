@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Carta para Mi novia</title>
+  <title>Carta para Mi Novia</title>
   <style>
     body {
       background: linear-gradient(to right, #d8c0fd, #7904eeca);
@@ -19,8 +19,8 @@
 
     .sobre-contenedor {
       position: relative;
-      width: 620px;
-      height: 620px;
+      width: 820px;
+      height: 720px;
       perspective: 1000px;
     }
 
@@ -63,6 +63,7 @@
       box-sizing: border-box;
       text-align: center;
       z-index: 2;
+      overflow-y: auto;
     }
 
     .carta h1 {
@@ -77,10 +78,10 @@
     }
 
     .mensaje {
-      font-size: 15px;
+      font-size: 18px;
       color: #333;
       margin-top: 15px;
-      line-height: 1;
+      line-height: 1.5;
       text-align: justify;
     }
 
@@ -124,15 +125,7 @@
     <div class="carta">
       <div class="corazon">❤️</div>
       <h1>Para Mi Amada Novia</h1>
-      <p class="mensaje">
-        Mi polola linda, <br><br>
-        Admiro cada cosa que haces, la pasión, el amor y el esfuerzo que demuestras, esa forma de alegar, de ser hija, prima, hermana y sobre todo mi novia, se que no es tarea facil y por eso te quiero agredecer por toda la paciencia y el amor infinito que me brindas.<br><br>
-        Se que muchas veces sentimos que no somos sufucientes o que lo estamos haciendo mal, pero la misma vida te demuetra lo buena que eres, los frutos de tu esfuerzo se ven reflejados cada vez más.<br><br>
-        Te amo con las fuerzas de mi alma, se que muy pronto estaremos en nuestra casita, construyendo nuestro hogar, ese hogar con el que tanto soñamos vivir y el que tanto añoramos brindar a nuestro hij@.<br><br>
-        Vida hermosa, todo sera mejor<br><br>
-        Siempre tuyo,<br><br>
-        <center><b>Tu pololo ❤️</b>
-      </p>
+      <p class="mensaje" id="mensaje"></p>
     </div>
   </div>
 </div>
@@ -140,22 +133,55 @@
 <button class="boton-repetir" onclick="reiniciarAnimacion()">Reproducir de nuevo</button>
 
 <script>
+  const texto = `Mi polola linda,
+
+Admiro cada cosa que haces: la pasión, el amor y el esfuerzo que demuestras. Esa forma de alegar, de ser hija, prima, hermana y, sobre todo, mi novia... Sé que no es tarea fácil y por eso quiero agradecerte por toda la paciencia y el amor infinito que me brindas.
+
+Sé que muchas veces sentimos que no somos suficientes o que lo estamos haciendo mal, pero la misma vida te demuestra lo buena que eres. Los frutos de tu esfuerzo se ven reflejados cada vez más.
+
+Te amo con las fuerzas de mi alma. Sé que muy pronto estaremos en nuestra casita, construyendo nuestro hogar, ese hogar con el que tanto soñamos y que tanto anhelamos ofrecerle a nuestro hij@.
+
+Vida hermosa, todo será mejor.
+
+Siempre tuyo,
+Tu pololo ❤️`;
+
+  const mensajeElemento = document.getElementById("mensaje");
+
+  function escribirTexto(i = 0) {
+    if (i < texto.length) {
+      mensajeElemento.innerHTML += texto[i] === '\n' ? '<br>' : texto[i];
+      setTimeout(() => escribirTexto(i + 1), 40);
+    }
+  }
+
+  function mostrarCarta() {
+    escribirTexto();
+  }
+
+  setTimeout(mostrarCarta, 3200); // Esperar a que la animación termine
+
   function reiniciarAnimacion() {
     const animacion = document.getElementById("animacion");
     const tapa = animacion.querySelector(".tapa");
     const carta = animacion.querySelector(".carta");
 
-    // Reiniciar animaciones
+    // Resetear animaciones
     tapa.style.animation = 'none';
     carta.style.animation = 'none';
     carta.style.opacity = '0';
     carta.style.top = '100%';
+    mensajeElemento.innerHTML = '';
 
-    void animacion.offsetWidth; // Trigger reflow
+    void animacion.offsetWidth; // Forzar reflow
 
-    tapa.style.animation = "abrirSobre 2s ease forwards";
-    carta.style.animation = "subirCarta 2s ease 2s forwards";
+    tapa.style.animation = "abrirSobre 3s ease forwards";
+    carta.style.animation = "subirCarta 2s ease 1s forwards";
+
+    setTimeout(mostrarCarta, 3200);
   }
 </script>
+
 </body>
 </html>
+
